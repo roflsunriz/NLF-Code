@@ -1,0 +1,102 @@
+# nlフィルタ定義(文字コード判定用なのでこの行は削除しないこと)
+
+# これは通常のコメントなのじゃ！
+[Replace]
+Name = テストフィルタ（総合テスト用）
+FullURL = https?://www\.nicovideo\.jp/.*
+Multi = TRUE
+EachLine = TRUE
+Require = !(?:channel|live)\.nicovideo\.jp
+idGroup = 1,2
+RequireHeader = user_session_12345678_\d+
+ContentType = text/html
+MatchLocal = TRUE
+AddList = list/NGUserId.txt
+AddVariable = testVar
+
+Match<
+# 動画IDとサムネイルIDのテスト
+(sm\d+).*?(thumbnail/\d+)
+
+# NESTコマンドのテスト
+$NEST(<div class="test",テスト,</div>)
+
+# LSTコマンドのテスト
+$LST("local/ngword.txt")
+
+# INCコマンドのテスト
+$INC(NGCount)テスト
+
+# SETコマンドのテスト
+$SET(testParam=value)
+
+# TSコマンドのテスト
+"($TS(local/test.js))"
+
+# URLコマンドのテスト
+www\.nicovideo\.jp/watch/($URL1)
+>
+
+Replace<
+# 変数のテスト
+ID: <id>
+SMID: <smid>
+メモリーID: <memoryId>
+空き容量: <freeSpace>
+動画ID: <eachSmid>
+改行: <CRLF>
+設定値: <nlVar:config!testParam>
+バージョン: <nlVar:VERSION>
+
+# 前方参照のテスト
+マッチした動画ID: $1
+サムネイルID: $2
+>
+
+[Script]
+Name = スクリプトテスト
+URL = www\.nicovideo\.jp
+Append<
+// JavaScriptのシンタックスハイライトのテスト
+const testFunction = () => {
+    console.log("テストスクリプト");
+    return document.querySelector('.test').innerHTML;
+};
+>
+
+[Style]
+Name = スタイルテスト
+URL = www\.nicovideo\.jp
+Append<
+/* CSSのシンタックスハイライトのテスト */
+.test {
+    color: red;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+.test:hover {
+    opacity: 0.8;
+}
+>
+
+[RequestHeader]
+Name = ヘッダーテスト
+URL = www\.nicovideo\.jp
+Match<
+http://([^/]+)/test\.html
+>
+Replace<
+http://$1/local/test.html
+>
+
+[Debug]
+
+[Config]
+Name = 設定テスト
+URL = test
+Match<
+テスト
+>
+Replace<
+置換後
+>
