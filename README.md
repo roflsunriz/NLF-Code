@@ -1,6 +1,6 @@
-# nlFilters Syntax Highlighter
+# NLF Code
 
-nlFiltersファイル用のシンタックスハイライト拡張機能なのじゃ！
+nlFiltersファイル用のシンタックスハイライト拡張機能です。
 
 ## 機能
 - nlFiltersの各セクション（[Replace], [Script]など）のハイライト
@@ -15,12 +15,12 @@ nlFiltersファイル用のシンタックスハイライト拡張機能なの�
 3. "Install"をクリック
 
 ### 手動インストール
-1. [Releases](https://github.com/yourusername/nlfilters-syntax-highlighter/releases)から最新の`.vsix`をダウンロード
+1. [Releases](https://github.com/roflsunriz/nlFilters-Syntax-HighLighter/releases)から最新の`.vsix`をダウンロード
 2. VSCodeで「VSIXからのインストール...」を選択
 3. ダウンロードした`.vsix`を選択
 
 ## マーケットプレイスのURL
-[nlFilters Syntax Highlighter](https://marketplace.visualstudio.com/items?itemName=roflsunriz.nlfilters-syntax-highlighter)
+[NLF Code](https://marketplace.visualstudio.com/items?itemName=roflsunriz.nlf-code)
 
 ## 使い方
 - `.nlf`ファイルは自動的にハイライトされます

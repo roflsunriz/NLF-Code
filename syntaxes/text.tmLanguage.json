@@ -94,9 +94,10 @@
                     "endCaptures": {
                         "0": { "name": "keyword.control.block.nlfilters" }
                     },
-                    "contentName": "source.html",
+                    "contentName": "meta.embedded.block.html",
                     "patterns": [
-                        { "include": "source.html" }
+                        { "include": "#regex" },
+                        { "include": "text.html.basic" }
                     ]
                 },
                 {
@@ -108,9 +109,9 @@
                     "endCaptures": {
                         "0": { "name": "keyword.control.block.nlfilters" }
                     },
-                    "contentName": "source.html",
+                    "contentName": "meta.embedded.block.html",
                     "patterns": [
-                        { "include": "source.html" }
+                        { "include": "text.html.basic" }
                     ]
                 }
             ]
@@ -120,6 +121,26 @@
                 "match": "^\\[(RequestHeader|Debug|Config)\\]$",
                 "name": "keyword.control.section.nlfilters"
             }]
+        },
+        "regex": {
+            "patterns": [
+                {
+                    "match": "\\\\[\\\\bfnrtv]",
+                    "name": "constant.character.escape.nlfilters"
+                },
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape.nlfilters"
+                },
+                {
+                    "match": "[\\[\\](){}?+*|^$.]",
+                    "name": "keyword.operator.regex.nlfilters"
+                },
+                {
+                    "match": "\\$[0-9]+",
+                    "name": "variable.other.regex.nlfilters"
+                }
+            ]
         }
     }
 }

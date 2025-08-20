@@ -1,11 +1,11 @@
 {
-  "name": "nlfilters-syntax-highlighter",
-  "displayName": "nlFilters-Syntax-HighLighter",
-  "description": "Syntax highlighting for nlFilters",
-  "version": "0.0.2",
+  "name": "nlf-code",
+  "displayName": "NLF Code - A Syntax Highlighter for nlFilters",
+  "description": "This extension provides syntax highlighting for nlFilters files which is used in NicoCache_nl software, the local proxy software for NicoNico.",
+  "version": "1.0.0",
   "publisher": "roflsunriz",
   "engines": {
-    "vscode": "^1.93.0"
+    "vscode": "^1.103.1"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
         "embeddedLanguages": {
             "source.js": "javascript",
             "source.css": "css",
-            "source.html": "html"
+            "meta.embedded.block.html": "html"
         }
     }]
   }
