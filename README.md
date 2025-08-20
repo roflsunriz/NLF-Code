@@ -23,7 +23,6 @@ nlFiltersファイル用のシンタックスハイライト拡張機能です�
 [NLF Code](https://marketplace.visualstudio.com/items?itemName=roflsunriz.nlf-code)
 
 ## 使い方
-- `.nlf`ファイルは自動的にハイライトされます
 - `.txt`ファイルは言語モードを「NLFilters」に変更してください
 
 ## 問題の報告
