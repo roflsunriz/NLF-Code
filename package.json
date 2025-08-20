@@ -2,10 +2,10 @@
   "name": "nlf-code",
   "displayName": "NLF Code - A Syntax Highlighter for nlFilters",
   "description": "This extension provides syntax highlighting for nlFilters files which is used in NicoCache_nl software, the local proxy software for NicoNico.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "roflsunriz",
   "engines": {
-    "vscode": "^1.103.1"
+    "vscode": "^1.99.3"
   },
   "repository": {
     "type": "git",
