@@ -1,0 +1,55 @@
+# nlフィルタ定義(文字コード判定用なのでこの行は削除しないこと)
+
+# コメント行
+[Replace]
+Name = nlFiltersの名前(HTML)
+FullURL = https://example.com
+ContentType = text/html
+Match<
+(<head(?:[^>]+)?>)(\r\n)?
+>
+Replace<
+$1
+<script>
+  console.log("Hello, world!");
+</script>
+$2
+>
+
+# コメント行
+[Script]
+Name = nlFiltersの名前(JavaScript)
+URL = https://example.com/
+ContentType = text/javascript
+Append<
+console.log("Hello, world!");
+>
+
+# コメント行
+[Style]
+Name = nlFiltersの名前(CSS)
+URL = https://example.com/
+ContentType = text/css
+Append<
+body {
+    background-color: red;
+}
+>
+
+# コメント行
+[Replace]
+Name = nlFiltersの名前(HTML)
+FullURL = https://example.com
+EachLine = true
+Multi = true
+ContentType = text/html
+Match<
+ABC
+DEF
+<div class="header"> title </div>
+>
+Replace<
+123
+456
+<a href="https://example.com"> link </a>
+>

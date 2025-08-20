@@ -3,19 +3,18 @@
     "name": "NLFilters",
     "scopeName": "source.nlfilters",
     "patterns": [
-        { "include": "#sections" },
-        { "include": "#definitions" },
-        { "include": "#scriptBlock" },
-        { "include": "#styleBlock" },
-        { "include": "#blocks" }
+        { "include": "#comments" },
+        { "include": "#scriptSection" },
+        { "include": "#styleSection" },
+        { "include": "#replaceSection" },
+        { "include": "#otherSections" },
+        { "include": "#definitions" }
     ],
     "repository": {
-        "sections": {
+        "comments": {
             "patterns": [{
-                "match": "^\\[(Replace|Script|Style|RequestHeader|Debug|Config)\\]$",
-                "captures": {
-                    "1": { "name": "entity.name.section.nlfilters" }
-                }
+                "match": "^#.*$",
+                "name": "comment.line.nlfilters"
             }]
         },
         "definitions": {
@@ -27,32 +26,100 @@
                 }
             }]
         },
-        "scriptBlock": {
-            "begin": "^\\[Script\\]\\n(?:.|\\n)*?^Append<$",
-            "end": "^>$",
-            "contentName": "source.js",
+        "scriptSection": {
+            "begin": "^\\[Script\\]$",
+            "end": "^(?=\\[)",
+            "beginCaptures": {
+                "0": { "name": "keyword.control.section.nlfilters" }
+            },
             "patterns": [
-                { "include": "source.js" }
-            ]
-        },
-        "styleBlock": {
-            "begin": "^\\[Style\\]\\n(?:.|\\n)*?^Append<$",
-            "end": "^>$",
-            "contentName": "source.css",
-            "patterns": [
-                { "include": "source.css" }
-            ]
-        },
-        "blocks": {
-            "patterns": [
+                { "include": "#comments" },
+                { "include": "#definitions" },
                 {
-                    "begin": "^(Match|Replace|Append)<$",
+                    "begin": "^Append<$",
                     "end": "^>$",
                     "beginCaptures": {
-                        "1": { "name": "keyword.control.block.nlfilters" }
-                    }
+                        "0": { "name": "keyword.control.block.nlfilters" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "keyword.control.block.nlfilters" }
+                    },
+                    "contentName": "source.js",
+                    "patterns": [
+                        { "include": "source.js" }
+                    ]
                 }
             ]
+        },
+        "styleSection": {
+            "begin": "^\\[Style\\]$",
+            "end": "^(?=\\[)",
+            "beginCaptures": {
+                "0": { "name": "keyword.control.section.nlfilters" }
+            },
+            "patterns": [
+                { "include": "#comments" },
+                { "include": "#definitions" },
+                {
+                    "begin": "^Append<$",
+                    "end": "^>$",
+                    "beginCaptures": {
+                        "0": { "name": "keyword.control.block.nlfilters" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "keyword.control.block.nlfilters" }
+                    },
+                    "contentName": "source.css",
+                    "patterns": [
+                        { "include": "source.css" }
+                    ]
+                }
+            ]
+        },
+        "replaceSection": {
+            "begin": "^\\[Replace\\]$",
+            "end": "^(?=\\[)",
+            "beginCaptures": {
+                "0": { "name": "keyword.control.section.nlfilters" }
+            },
+            "patterns": [
+                { "include": "#comments" },
+                { "include": "#definitions" },
+                {
+                    "begin": "^Match<$",
+                    "end": "^>$",
+                    "beginCaptures": {
+                        "0": { "name": "keyword.control.block.nlfilters" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "keyword.control.block.nlfilters" }
+                    },
+                    "contentName": "source.html",
+                    "patterns": [
+                        { "include": "source.html" }
+                    ]
+                },
+                {
+                    "begin": "^Replace<$",
+                    "end": "^>$",
+                    "beginCaptures": {
+                        "0": { "name": "keyword.control.block.nlfilters" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "keyword.control.block.nlfilters" }
+                    },
+                    "contentName": "source.html",
+                    "patterns": [
+                        { "include": "source.html" }
+                    ]
+                }
+            ]
+        },
+        "otherSections": {
+            "patterns": [{
+                "match": "^\\[(RequestHeader|Debug|Config)\\]$",
+                "name": "keyword.control.section.nlfilters"
+            }]
         }
     }
 }

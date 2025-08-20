@@ -2,7 +2,7 @@
   "name": "nlfilters-syntax-highlighter",
   "displayName": "nlFilters-Syntax-HighLighter",
   "description": "Syntax highlighting for nlFilters",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "roflsunriz",
   "engines": {
     "vscode": "^1.93.0"
@@ -19,15 +19,15 @@
     "Programming Languages"
   ],
   "keywords": [
-    "nlfilters",
+    "nlFilters",
     "syntax",
     "highlighting"
   ],
   "contributes": {
     "languages": [{
         "id": "nlfilters",
-        "aliases": ["NLFilters", "nlfilters"],
-        "extensions": [".txt", ".nlf"],
+        "aliases": ["NLFilters", "nlFilters"],
+        "extensions": [".txt"],
         "configuration": "./language-configuration.json"
     }],
     "grammars": [{
@@ -36,7 +36,8 @@
         "path": "./syntaxes/text.tmLanguage.json",
         "embeddedLanguages": {
             "source.js": "javascript",
-            "source.css": "css"
+            "source.css": "css",
+            "source.html": "html"
         }
     }]
   }
