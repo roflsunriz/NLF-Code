@@ -3,7 +3,7 @@
   "displayName": "nlFilters-Syntax-HighLighter",
   "description": "Syntax highlighting for nlFilters",
   "version": "0.0.1",
-  "publisher": "your-publisher-name",
+  "publisher": "roflsunriz",
   "engines": {
     "vscode": "^1.93.0"
   },

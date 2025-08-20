@@ -19,6 +19,9 @@ nlFiltersファイル用のシンタックスハイライト拡張機能なの�
 2. VSCodeで「VSIXからのインストール...」を選択
 3. ダウンロードした`.vsix`を選択
 
+## マーケットプレイスのURL
+[nlFilters Syntax Highlighter](https://marketplace.visualstudio.com/items?itemName=roflsunriz.nlfilters-syntax-highlighter)
+
 ## 使い方
 - `.nlf`ファイルは自動的にハイライトされます
 - `.txt`ファイルは言語モードを「NLFilters」に変更してください
