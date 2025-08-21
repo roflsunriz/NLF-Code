@@ -2,6 +2,8 @@
 
 nlFiltersファイル用のシンタックスハイライト拡張機能です。
 
+![Cover](./images/NLF-Code%20Cover.png)
+
 ## 機能
 - nlFiltersの各セクション（[Replace], [Script]など）のハイライト
 - 設定項目（Name=, URL=など）のハイライト
